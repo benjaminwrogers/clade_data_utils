@@ -1,7 +1,8 @@
 # Uses utility functions to output list of variants of interest.
 
 import polars as pl
-from utility.data_utility import *
+from utility.data_utility import variant_prep, variants_to_model
+from urllib.request import urlretrieve
 
 
 # Download latest data
