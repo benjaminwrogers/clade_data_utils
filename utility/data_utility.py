@@ -3,7 +3,10 @@
 
 import polars as pl
 from datetime import timedelta
+from urllib.request import urlretrieve
 
+
+# Clean the clade data from NextStrain
 def variant_prep(dataf, cols=None):
     """
     1) Filter out data we won't use
@@ -59,6 +62,7 @@ def variant_prep(dataf, cols=None):
     return counts_dat
 
 
+# Determine list of variants to model
 def variants_to_model(dataf, threshold = .01, threshold_weeks = 3):
     
     # What is the most recent day of data
@@ -89,3 +93,9 @@ def variants_to_model(dataf, threshold = .01, threshold_weeks = 3):
     return(high_prev_variants)
 
 
+def download_nextstrain():
+
+    url = "https://data.nextstrain.org/files/ncov/open/metadata.tsv.zst"
+    filename = "data/metadata.tsv.zst"
+
+    urlretrieve(url, filename)
