@@ -6,7 +6,7 @@ from datetime import timedelta
 
 
 # Clean the clade data from NextStrain
-def variant_prep(dataf):
+def data_prep(dataf):
     """
     Filter a line list data file and summarize to get clade counts
     
@@ -76,9 +76,9 @@ def variant_prep(dataf):
 
 
 # Determine list of variants to model
-def variants_to_model(dataf, threshold = .01, threshold_weeks = 3):
+def clades_to_model(dataf, threshold = .01, threshold_weeks = 3):
     """
-    Determine list of variants to model
+    Determine list of clades to model
     
     Parameters
     ----------
